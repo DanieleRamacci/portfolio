@@ -100,6 +100,22 @@
   </header>
 
   <main class="wrap">
+    <!-- ATTIVITÀ IN EVIDENZA -->
+    <section id="featured">
+      <div class="card" style="padding:22px; margin: 10px 0 28px">
+        <div class="badge" style="display:inline-block; margin-bottom:10px">Attività in evidenza</div>
+        <h2 style="margin-top:0">NetBox Automation — Presentazione alla CCR INFN</h2>
+        <p class="p-meta">Automazione nella Gestione DCIM nel Datacenter: Ricerca, Caricamento e Aggiornamento · <strong>Sala Meeting "Le Saline"</strong></p>
+        <p>La gestione avanzata del datacenter dell'Istituto Nazionale di Fisica Nucleare (INFN) di Roma si confronta con sfide complesse in termini di inventario dei dispositivi, disposizione spaziale delle risorse e sicurezza informatica, oltre alla crescente necessità di aderire a rigorosi requisiti di sicurezza e gestire efficacemente le vulnerabilità associate a specifiche versioni di software o hardware. La decisione di adottare NetBox come software DCIM (Data Center Infrastructure Management) emerge come soluzione strategica per affrontare queste problematiche, promuovendo un'organizzazione ottimizzata del datacenter. Questo strumento facilita una visione comprensiva degli spazi, sia liberi che occupati, e migliora la dislocazione geografica e spaziale delle risorse, supportando così la progettazione e la programmazione degli interventi. Tuttavia, l'introduzione di NetBox presenta nuove sfide, come l'integrazione nel workflow aziendale esistente e la necessità di un caricamento efficiente dei dispositivi. La principale sfida nell’utilizzo di NetBox è stata quella di dover caricare centinaia di dispositivi e interfacce a mano.</p>
+        <p>La risposta alla necessità di automatizzare l'inserimento dei dispositivi nel datacenter ha trovato soluzione nell'adozione di NetDisco, un software che impiega il protocollo SNMP per interagire con le interfacce di rete dei dispositivi. Questa interazione permette non solo la visualizzazione delle informazioni tramite una dashboard web, ma offre anche l'accesso a tali dati attraverso API REST. Queste ultime si sono rivelate fondamentali per l’integrazione di script in Python dedicati alla procedura di discovery e caricamento automatizzato. Gli script hanno il compito di estrarre, elaborare e infine caricare le informazioni direttamente in NetBox. Questo processo semplifica la procedura di caricamento dei dispositivi presenti nel datacenter, eliminando la necessità di inserimenti manuali laboriosi e soggetti a errori, ma stabilisce anche un flusso di lavoro più efficiente e accurato per l'aggiornamento e la manutenzione dell'inventario di rete. Inoltre, aprendo le porte in futuro a nuove funzionalità a supporto della continua richiesta di nuovi requisiti in ambito sicurezza, vulnerabilità e gestione dei dispositivi informatici.</p>
+        <p>In conclusione, questo progetto si è concentrato sull'elaborazione di un sistema automatizzato per la rilevazione e il caricamento dei dispositivi all'interno del datacenter utilizzando NetBox e altri tools a supporto. In aggiunta, si è posta l'attenzione sull'elaborazione di una soluzione che permetta l'aggiornamento automatico di NetBox a fronte di variazioni nella struttura del datacenter, adottando codice in Python per identificare eventuali cambiamenti nella configurazione della rete e proporre adeguamenti pertinenti su NetBox.</p>
+        <div class="p-links" style="margin-top:12px">
+          <a class="btn primary" href="https://agenda.infn.it/event/40160/contributions/230230/" target="_blank" rel="noopener">Leggi su agenda.infn.it →</a>
+          <a class="btn" href="assets/daniele-ramacci-netbox-v5.pdf" target="_blank" rel="noopener">📄 Slide presentazione</a>
+        </div>
+      </div>
+    </section>
+
     <!-- HERO -->
     <section class="hero">
       <div class="card intro">
@@ -115,7 +131,7 @@
         </div>
         <div class="cta">
           <a class="btn primary" href="#progetti">Vai ai progetti →</a>
-          <a class="btn ghost" href="assets/CV-Daniele-Ramacci.pdf" target="_blank" rel="noopener">Scarica CV</a>
+          <a class="btn ghost" href="assets/cv-2025.pdf" target="_blank" rel="noopener">Scarica CV</a>
           <a class="btn ghost" href="https://www.linkedin.com/in/danieleramacci" target="_blank" rel="noopener">LinkedIn</a>
         </div>
       </div>
@@ -128,6 +144,10 @@
         <div class="row" style="margin-top:8px">
           <div>✉️ <a href="mailto:danieleramaccird@gmail.com">danieleramaccird@gmail.com</a></div>
           <div>🐙 <a href="https://github.com/DanieleRamacci" target="_blank" rel="noopener">github.com/DanieleRamacci</a></div>
+        </div>
+        <div class="row" style="margin-top:8px">
+          <div>✉️ <a href="mailto:daniele.ramaccid@roma1.infn.it">daniele.ramaccid@roma1.infn.it</a></div>
+          <div>✉️ <a href="mailto:daniele.ramacci@cnr.it">daniele.ramacci@cnr.it</a></div>
         </div>
       </aside>
     </section>
@@ -230,7 +250,7 @@
           <div class="p-links">
             <a class="btn primary" href="#/p/salulink">Scopri il progetto →</a>
             <a class="btn" href="https://www.youtube.com/watch?v=EljYld69ud0" target="_blank" rel="noopener">🎬 Video presentazione</a>
-            <a class="btn" href="assets/Presentazione-SaluLink.pdf" target="_blank" rel="noopener">📄 PDF presentazione</a>
+            <a class="btn" href="/assets/Presentazione-SaluLink.pdf" target="_blank" rel="noopener">📄 PDF presentazione</a>
           </div>
         </article>
 
@@ -257,20 +277,13 @@
           </ul>
           <div class="p-links">
             <a class="btn primary" href="#/p/netbox">Scopri il progetto →</a>
-            <a id="link-presentazione-palau" class="btn" href="#" target="_blank" rel="noopener">📑 Presentazione CCR Palau</a>
+            <a id="link-presentazione-palau" class="btn" href="https://agenda.infn.it/event/40160/contributions/230230/" target="_blank" rel="noopener">📑 Presentazione CCR Palau</a>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- GITHUB AUTOCARICATO -->
-    <section id="github">
-      <h2>Progetti GitHub</h2>
-      <p class="p-meta">Ultimi repository da <a href="https://github.com/DanieleRamacci" target="_blank" rel="noopener">@DanieleRamacci</a> (si aggiornano automaticamente).</p>
-      <div id="repos" class="repos" aria-live="polite"></div>
-    </section>
-
-    <!-- ROUTES -->
+    <!-- PAGINE DETTAGLIO (SPA con hash #/p/slug) -->
     <section id="route-salulink" class="route">
       <h2>SaluLink — Case Study</h2>
       <div class="two-col">
@@ -303,7 +316,7 @@
           </ul>
           <p class="p-links">
             <a class="btn" href="https://www.youtube.com/watch?v=EljYld69ud0" target="_blank" rel="noopener">🎬 Guarda la presentazione</a>
-            <a class="btn" href="assets/Presentazione-SaluLink.pdf" target="_blank" rel="noopener">📄 Scarica la presentazione</a>
+            <a class="btn" href="/assets/Presentazione-SaluLink.pdf" target="_blank" rel="noopener">📄 Scarica la presentazione</a>
             <a class="btn" href="#" onclick="history.back();return false;">← Torna</a>
           </p>
         </div>
@@ -363,7 +376,7 @@
             <li>Job schedulati con report differenze.</li>
           </ul>
           <p class="p-links">
-            <a class="btn" id="btn-palau" href="#" target="_blank" rel="noopener">📑 Presentazione CCR Palau</a>
+            <a class="btn" id="btn-palau" href="https://agenda.infn.it/event/40160/contributions/230230/" target="_blank" rel="noopener">📑 Presentazione CCR Palau</a>
             <a class="btn" href="#" onclick="history.back();return false;">← Torna</a>
           </p>
         </div>
@@ -372,6 +385,13 @@
           <p>Attività svolta nell'ambito ICSC HPC & Big Data, messa in opera data center cloud e automazioni DCIM.</p>
         </div>
       </div>
+    </section>
+
+    <!-- GITHUB AUTOCARICATO -->
+    <section id="github">
+      <h2>Progetti GitHub</h2>
+      <p class="p-meta">Ultimi repository da <a href="https://github.com/DanieleRamacci" target="_blank" rel="noopener">@DanieleRamacci</a> (si aggiornano automaticamente).</p>
+      <div id="repos" class="repos" aria-live="polite"></div>
     </section>
 
     <!-- FOOTER -->
@@ -436,9 +456,6 @@
     }
     window.addEventListener('hashchange', renderRoute);
     renderRoute();
-
-    // Year
-    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 
   <!-- JSON-LD (SEO) -->
