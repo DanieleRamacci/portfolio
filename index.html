@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Daniele Ramacci · Portfolio & CV</title>
+  <meta name="description" content="Portfolio personale di Daniele Ramacci: esperienze, timeline, progetti GitHub e case study (SaluLink, SmartKiosk, NFC, NetBox automation)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      /* LIGHT THEME */
+      --bg:#f7f9fc; --paper:#ffffff; --ink:#0b1020; --muted:#5b6478; --primary:#0b6bcb; --accent:#10b981;
+      --card:#ffffff; --line:#e6e8f0; --chip:#eef4ff; --shadow: 0 10px 30px rgba(15, 23, 42, .08);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    a{color:var(--primary);text-decoration:none}
+    a:hover{opacity:.9}
+    .wrap{max-width:1100px;margin:auto;padding:28px}
+    header{position:sticky;top:0;z-index:6;background:rgba(255,255,255,.8);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--line)}
+    .nav{display:flex;gap:14px;align-items:center;justify-content:space-between;padding:12px 0}
+    .nav a{padding:10px 14px;border-radius:10px}
+    .nav a.active,.nav a:hover{background:var(--chip)}
+
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center;padding:40px 0}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+    .hero .intro{padding:28px}
+    .title{font-weight:800;letter-spacing:.3px;font-size:42px;margin:0 0 8px}
+    .subtitle{color:var(--muted);margin:0 0 18px}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+    .chip{background:var(--chip);padding:8px 12px;border-radius:999px;font-size:13px;border:1px solid var(--line)}
+    .cta{display:flex;gap:12px;margin-top:18px;flex-wrap:wrap}
+    .btn{display:inline-flex;gap:8px;align-items:center;padding:12px 16px;border-radius:12px;border:1px solid var(--line)}
+    .btn.primary{background:linear-gradient(135deg,#3b82f6,#60a5fa);color:#fff;font-weight:700;border:none}
+    .btn.ghost{background:#fff}
+
+    .contact{padding:22px}
+    .contact .row{display:grid;grid-template-columns:1fr 1fr;gap:8px;color:var(--muted);font-size:14px}
+
+    section{scroll-margin-top:80px}
+    h2{margin:28px 0 16px;font-size:28px}
+
+    /* Timeline */
+    .timeline{position:relative;padding:8px 0 8px 2px}
+    .timeline:before{content:"";position:absolute;left:22px;top:0;bottom:0;width:2px;background:var(--line)}
+    .t-item{display:grid;grid-template-columns:48px 1fr;gap:16px}
+    .t-dot{width:16px;height:16px;border-radius:50%;background:var(--primary);margin:8px 0 0 15px;box-shadow:0 0 0 4px #e5edff}
+    .t-card{padding:16px 18px;margin:0 0 14px;border:1px solid var(--line);background:var(--paper);border-radius:16px}
+    .t-card h3{margin:0 0 6px;font-size:18px}
+    .t-meta{display:flex;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:13px}
+    .t-bullets{margin:8px 0 0 0;padding-left:18px;color:#1f2a44}
+
+    /* Projects */
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .p-card{padding:16px;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+    .p-card h3{margin:4px 0 8px}
+    .p-meta{font-size:13px;color:var(--muted)}
+    .p-links{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+    .badge{font-size:12px;background:var(--chip);border:1px solid var(--line);padding:4px 8px;border-radius:999px}
+
+    /* GitHub section */
+    .repos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .repo{padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+    .repo h4{margin:0 0 8px;font-size:16px}
+    .repo .stat{font-size:12px;color:var(--muted)}
+
+    /* Route pages */
+    .route{display:none}
+    body.route-active main > section:not(.route){display:none}
+    body.route-active main > section.route{display:block}
+    .lead{color:#293042}
+    .two-col{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+    .kpi{display:flex;gap:16px;flex-wrap:wrap;margin:12px 0}
+    .kpi .chip{font-weight:600}
+
+    /* Footer */
+    footer{margin:40px 0 0;padding:24px 0;color:var(--muted)}
+
+    /* Responsive */
+    @media (max-width: 980px){.hero{grid-template-columns:1fr}.grid,.repos,.two-col{grid-template-columns:1fr}} 
+    @media (max-width: 620px){.grid,.repos{grid-template-columns:1fr}.nav{flex-wrap:wrap}.title{font-size:34px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:12px;height:12px;border-radius:50%;background:var(--accent)"></div>
+        <strong>Daniele Ramacci</strong>
+      </div>
+      <nav style="display:flex;gap:6px">
+        <a href="#cv" class="active">Timeline</a>
+        <a href="#progetti">Progetti</a>
+        <a href="#github">GitHub</a>
+        <a href="#contatti">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="card intro">
+        <h1 class="title">Gestione HPC & Big Data · Full‑Stack Developer</h1>
+        <p class="subtitle">Sviluppo software, automazione RPA/AI, architetture cloud e integrazioni tra mondo informatico ed elettronico.</p>
+        <div class="chips">
+          <span class="chip">Full‑Stack (JS, Node, PHP, Python)</span>
+          <span class="chip">Electron JS</span>
+          <span class="chip">IoT · NFC (MIFARE)</span>
+          <span class="chip">SOAP/WSDL · API</span>
+          <span class="chip">OpenStack · NetBox · NetDisco</span>
+          <span class="chip">AWS · Serverless</span>
+        </div>
+        <div class="cta">
+          <a class="btn primary" href="#progetti">Vai ai progetti →</a>
+          <a class="btn ghost" href="assets/CV-Daniele-Ramacci.pdf" target="_blank" rel="noopener">Scarica CV</a>
+          <a class="btn ghost" href="https://www.linkedin.com/in/danieleramacci" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <aside class="card contact" id="contatti">
+        <h2 style="margin-top:0">Contatti</h2>
+        <div class="row">
+          <div>📍 Roma, Lazio</div>
+          <div>📞 <a href="tel:+393471066389">347 106 6389</a></div>
+        </div>
+        <div class="row" style="margin-top:8px">
+          <div>✉️ <a href="mailto:danieleramaccird@gmail.com">danieleramaccird@gmail.com</a></div>
+          <div>🐙 <a href="https://github.com/DanieleRamacci" target="_blank" rel="noopener">github.com/DanieleRamacci</a></div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- TIMELINE / CV -->
+    <section id="cv">
+      <h2>Esperienze – Timeline</h2>
+      <div class="timeline">
+        <!-- CNR -->
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <h3>CTER · Full‑Stack & RPA — Consiglio Nazionale delle Ricerche</h3>
+            <div class="t-meta">lug 2024 — oggi · Roma</div>
+            <ul class="t-bullets">
+              <li>Automazione processi d’ufficio con RPA/AI e consolidamento dati multi‑fonte in banca dati unica a supporto decisioni.</li>
+              <li>Integrazioni software e sviluppo tool per raccolta/organizzazione dati.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- INFN -->
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <h3>CTER · Progetto ICSC HPC & Big Data — INFN</h3>
+            <div class="t-meta">giu 2023 — lug 2024 · Roma</div>
+            <ul class="t-bullets">
+              <li>Gestione centri di calcolo Tier‑2 per HPC & Big Data (Spoke 0 Supercomputing Cloud Infrastructure).</li>
+              <li>DataCloud WP1: messa in esercizio infrastruttura OpenStack e servizi cloud INFN.</li>
+              <li>Automazione: discovery dispositivi via SNMP e caricamento automatico su <strong>NetBox</strong> (DCIM).</li>
+              <li>Presentazione alla <strong>CCR di Palau</strong>: progetto “NetBox automation” per mappatura automatizzata rete con NetBox & NetDisco. <a href="#link-presentazione-palau">Link presentazione</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- DR Digital Entrepreneur -->
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <h3>Software Designer / Web Developer — DR Digital Entrepreneur</h3>
+            <div class="t-meta">gen 2018 — oggi · Roma</div>
+            <ul class="t-bullets">
+              <li>Soluzioni informatiche per avvocati e notai: siti, gestionali, automazioni.</li>
+              <li>Attività di gestione aziendale: business plan, <em>Consiglio di Amministrazione</em>.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Aurealink -->
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <h3>Co‑Founder, CdA, R&D — Aurealink</h3>
+            <div class="t-meta">lug 2021 — lug 2024 · Colleferro</div>
+            <ul class="t-bullets">
+              <li>Sviluppo e progettazione software, Cloud & IoT.</li>
+              <li>SmartKiosk per <strong>Disney Gioielli</strong>, esposto a <strong>VicenzaOro</strong>.</li>
+              <li>Deposito software presso <strong>SIAE</strong>.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Farmacia LA SALUTE -->
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <h3>Javascript/PHP Developer — Farmacia La Salute</h3>
+            <div class="t-meta">giu 2019 — giu 2020 · Colleferro</div>
+            <ul class="t-bullets">
+              <li>App Desktop Touch con <strong>Electron</strong>, Node.js, Express per gestione e riproduzione automatica video.</li>
+              <li>Script bash per avvio automatico server/app all’accensione.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Autonomo -->
+        <div class="t-item">
+          <div class="t-dot"></div>
+          <div class="t-card">
+            <h3>Full‑Stack Developer — Autonomo</h3>
+            <div class="t-meta">2015 — 2019</div>
+            <ul class="t-bullets">
+              <li>WebApp, siti vetrina, gestionali (PHP/JS/Node/MySQL/HTML/CSS, Ionic/Angular/Capacitor, Electron).</li>
+              <li>CMS: WordPress/Joomla/Magento. Progetti: Piscina Atlantide, Anxiety Escape Room, Ecocasa; App: Aulando Tor Vergata.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGETTI CURATI -->
+    <section id="progetti">
+      <h2>Progetti in evidenza</h2>
+      <div class="grid">
+        <article class="p-card">
+          <div class="badge">Case Study</div>
+          <h3>SaluLink — Piattaforma & Gestionale</h3>
+          <p class="p-meta">Sviluppo del gestionale, integrazioni e flussi di automazione.</p>
+          <ul>
+            <li>App cross‑platform con <strong>Electron JS</strong>.</li>
+            <li>Lettore <strong>NFC</strong> tessere SaluLink con tecnologia <strong>MIFARE</strong> via libreria Node.js.</li>
+            <li>Sincronizzazione <strong>Farmadati</strong> e invio ordini prodotti tramite <strong>Farmaclik</strong> (API <strong>SOAP/WSDL</strong>).</li>
+          </ul>
+          <div class="p-links">
+            <a class="btn primary" href="#/p/salulink">Scopri il progetto →</a>
+            <a class="btn" href="https://www.youtube.com/watch?v=EljYld69ud0" target="_blank" rel="noopener">🎬 Video presentazione</a>
+            <a class="btn" href="assets/Presentazione-SaluLink.pdf" target="_blank" rel="noopener">📄 PDF presentazione</a>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="badge">IoT / Retail</div>
+          <h3>SmartKiosk — Disney Gioielli</h3>
+          <p class="p-meta">Progettazione HW/SW, setup componenti elettroniche, UX touch.</p>
+          <ul>
+            <li>Player multimediale e catalogo interattivo.</li>
+            <li>Esposizione a <strong>VicenzaOro</strong>.</li>
+          </ul>
+          <div class="p-links">
+            <a class="btn primary" href="#/p/smartkiosk">Scopri il progetto →</a>
+          </div>
+        </article>
+
+        <article class="p-card">
+          <div class="badge">Networking Automation</div>
+          <h3>NetBox Automation — INFN</h3>
+          <p class="p-meta">Automazione mappatura infrastruttura di rete (SNMP → NetBox/NetDisco).</p>
+          <ul>
+            <li>Discovery device via <strong>SNMP</strong>, import su <strong>NetBox (DCIM)</strong>.</li>
+            <li>Integrazione con <strong>NetDisco</strong>.</li>
+          </ul>
+          <div class="p-links">
+            <a class="btn primary" href="#/p/netbox">Scopri il progetto →</a>
+            <a id="link-presentazione-palau" class="btn" href="#" target="_blank" rel="noopener">📑 Presentazione CCR Palau</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- GITHUB AUTOCARICATO -->
+    <section id="github">
+      <h2>Progetti GitHub</h2>
+      <p class="p-meta">Ultimi repository da <a href="https://github.com/DanieleRamacci" target="_blank" rel="noopener">@DanieleRamacci</a> (si aggiornano automaticamente).</p>
+      <div id="repos" class="repos" aria-live="polite"></div>
+    </section>
+
+    <!-- ROUTES -->
+    <section id="route-salulink" class="route">
+      <h2>SaluLink — Case Study</h2>
+      <div class="two-col">
+        <div class="card" style="padding:18px">
+          <p class="lead">Suite gestionale per farmacia con integrazioni <strong>Farmadati</strong> e invio ordini <strong>Farmaclik</strong> via <strong>SOAP/WSDL</strong>, front-end <strong>Electron JS</strong> e moduli <strong>NFC MIFARE</strong> per tessere cliente.</p>
+          <div class="kpi">
+            <span class="chip">Electron</span>
+            <span class="chip">Node.js</span>
+            <span class="chip">NFC · MIFARE</span>
+            <span class="chip">SOAP/WSDL</span>
+            <span class="chip">Farmadati · Farmaclik</span>
+          </div>
+          <h3>Obiettivi</h3>
+          <ul>
+            <li>Gestire anagrafiche, vendite e fidelizzazione con tessere NFC.</li>
+            <li>Allineare il catalogo con Farmadati e ridurre errori d’ordine.</li>
+            <li>Snellire l’operatività con automazioni e script server.</li>
+          </ul>
+          <h3>Soluzione</h3>
+          <ul>
+            <li>App desktop cross‑platform basata su Electron (UI touch‑friendly).</li>
+            <li>Modulo Node.js per <strong>lettura/scrittura NFC</strong> (MIFARE) con sicurezza a chiave.</li>
+            <li>Connettori SOAP con parsing WSDL e code retry/transazioni idempotenti.</li>
+            <li>Pipeline di sync programmata (cron) con logging e reportistica.</li>
+          </ul>
+          <h3>Risultati</h3>
+          <ul>
+            <li>Riduzione tempi d’ordine e scarti; tracciabilità completa operazioni.</li>
+            <li>Esperienza cliente migliorata con check‑in rapido via NFC.</li>
+          </ul>
+          <p class="p-links">
+            <a class="btn" href="https://www.youtube.com/watch?v=EljYld69ud0" target="_blank" rel="noopener">🎬 Guarda la presentazione</a>
+            <a class="btn" href="assets/Presentazione-SaluLink.pdf" target="_blank" rel="noopener">📄 Scarica la presentazione</a>
+            <a class="btn" href="#" onclick="history.back();return false;">← Torna</a>
+          </p>
+        </div>
+        <div class="card" style="padding:0;overflow:hidden;aspect-ratio:16/9">
+          <iframe width="100%" height="100%" src="https://www.youtube.com/embed/EljYld69ud0" title="SaluLink" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="route-smartkiosk" class="route">
+      <h2>SmartKiosk — Disney Gioielli</h2>
+      <div class="two-col">
+        <div class="card" style="padding:18px">
+          <p class="lead">Totem interattivo per retail: player multimediale, catalogo touch e telemetria. Elettronica custom, enclosure e software end‑to‑end. Esposizione a <strong>VicenzaOro</strong>.</p>
+          <div class="kpi">
+            <span class="chip">Electron</span>
+            <span class="chip">Node/Express</span>
+            <span class="chip">Hardware setup</span>
+            <span class="chip">UX Kiosk</span>
+          </div>
+          <h3>Componenti principali</h3>
+          <ul>
+            <li>Player video/immagini a loop con cache locale e watchdog.</li>
+            <li>Interfaccia touch per esplorare collezioni e varianti.</li>
+            <li>Gestione periferiche (schermo, lettori, alimentazione) e avvio automatico.</li>
+          </ul>
+          <p class="p-links">
+            <a class="btn" href="#" onclick="history.back();return false;">← Torna</a>
+          </p>
+        </div>
+        <div class="card" style="padding:24px">
+          <h3>Ruolo</h3>
+          <p>Progettazione, sviluppo software, integrazione hardware, collaudo e supporto in fiera.</p>
+          <h3>Esiti</h3>
+          <ul>
+            <li>Visibilità del brand e aumento ingaggio visitatori allo stand.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="route-netbox" class="route">
+      <h2>NetBox Automation — INFN</h2>
+      <div class="two-col">
+        <div class="card" style="padding:18px">
+          <p class="lead">Automazione della mappatura dell'infrastruttura: discovery SNMP, normalizzazione e push in <strong>NetBox</strong>, integrazione con <strong>NetDisco</strong>.</p>
+          <div class="kpi">
+            <span class="chip">Python</span>
+            <span class="chip">SNMP</span>
+            <span class="chip">NetBox API</span>
+            <span class="chip">NetDisco</span>
+          </div>
+          <h3>Funzionalità</h3>
+          <ul>
+            <li>Rilevamento apparati (switch/router), parsing MIB e correlazione.</li>
+            <li>Creazione/aggiornamento automatizzato asset in NetBox (device, interfaccie, cavi).</li>
+            <li>Job schedulati con report differenze.</li>
+          </ul>
+          <p class="p-links">
+            <a class="btn" id="btn-palau" href="#" target="_blank" rel="noopener">📑 Presentazione CCR Palau</a>
+            <a class="btn" href="#" onclick="history.back();return false;">← Torna</a>
+          </p>
+        </div>
+        <div class="card" style="padding:24px">
+          <h3>Contesto</h3>
+          <p>Attività svolta nell'ambito ICSC HPC & Big Data, messa in opera data center cloud e automazioni DCIM.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrap" style="padding:0">
+        <div>© <span id="year"></span> Daniele Ramacci — Portfolio</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Navigazione attiva (solo in home)
+    const navLinks = document.querySelectorAll('header nav a');
+    const sections = [...document.querySelectorAll('main section')].filter(s=>!s.classList.contains('route'));
+    const onScroll = () => {
+      if(document.body.classList.contains('route-active')) return;
+      const y = window.scrollY + 120;
+      let current = sections[0]?.id;
+      sections.forEach(s => { if (y >= s.offsetTop) current = s.id; });
+      navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+    };
+    document.addEventListener('scroll', onScroll);
+
+    // GitHub: carica ultimi repo
+    async function loadRepos(){
+      try{
+        const res = await fetch('https://api.github.com/users/DanieleRamacci/repos?per_page=100', {headers:{'Accept':'application/vnd.github+json'}});
+        const data = await res.json();
+        const sorted = (Array.isArray(data) ? data : []).sort((a,b)=> new Date(b.pushed_at) - new Date(a.pushed_at)).slice(0,6);
+        const c = document.getElementById('repos');
+        if(!c) return;
+        c.innerHTML = sorted.map(r => `
+          <article class="repo">
+            <h4><a href="${r.html_url}" target="_blank" rel="noopener">${r.name}</a></h4>
+            <div class="stat">${r.language || '—'} • ⭐ ${r.stargazers_count} • last push ${new Date(r.pushed_at).toLocaleDateString('it-IT')}</div>
+            <p>${(r.description||'').slice(0,160)}</p>
+          </article>`).join('');
+      }catch(e){
+        const c = document.getElementById('repos');
+        if(c) c.innerHTML = '<div class="repo">Impossibile caricare i repository al momento.</div>';
+      }
+    }
+    loadRepos();
+
+    // Router: mostra pagine dettaglio progetto se l'hash è #/p/slug
+    const routes = { salulink: 'route-salulink', smartkiosk: 'route-smartkiosk', netbox: 'route-netbox' };
+    function renderRoute(){
+      const h = location.hash;
+      const isProject = h.startsWith('#/p/');
+      document.body.classList.toggle('route-active', isProject);
+      // nascondi tutte le route
+      document.querySelectorAll('section.route').forEach(s=> s.style.display='none');
+      if(isProject){
+        const slug = h.split('/')[2];
+        const id = routes[slug];
+        const el = id && document.getElementById(id);
+        if(el){ el.style.display='block'; window.scrollTo({top:0,behavior:'instant'}); }
+      } else {
+        // torna in home
+        window.requestAnimationFrame(()=>window.scrollTo({top:0,behavior:'instant'}));
+      }
+    }
+    window.addEventListener('hashchange', renderRoute);
+    renderRoute();
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- JSON-LD (SEO) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Daniele Ramacci",
+    "jobTitle": "Full-Stack Developer & HPC/Big Data Ops",
+    "address": {"@type":"PostalAddress","addressLocality":"Roma","addressCountry":"IT"},
+    "email": "mailto:danieleramaccird@gmail.com",
+    "telephone": "+39-347-106-6389",
+    "sameAs": [
+      "https://github.com/DanieleRamacci",
+      "https://www.linkedin.com/in/danieleramacci"
+    ]
+  }
+  </script>
+</body>
+</html>
